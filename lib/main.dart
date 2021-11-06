@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:recipes/model/recipe.dart';
 
 /**
  * Punto de entrada, este método lonza la aplicación pasada en su parámetro
@@ -71,7 +72,21 @@ class _MyHomePageState extends State<MyHomePage> {
        * de iOS.
        */
       body: SafeArea(
-        child: Container(),
+
+        /**
+         * Cuerpo del widget
+         */
+        // Builds a list using
+        child: ListView.builder(
+            // determines the number of rows the list has
+            itemCount: Recipe.sampleRecipes.length,
+
+            // builds the widget tree for each row
+            itemBuilder: (BuildContext context, int index) {
+              // widget displays the name of the recipe
+              return Text(Recipe.sampleRecipes[index].lable);
+            },
+          ),
       ),
 
     );
