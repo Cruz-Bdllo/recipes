@@ -23,7 +23,7 @@ class RecipeApp extends StatelessWidget {
       title: 'Recipe Calculator',
 
       /*
-       Esta variable permite determinar los aspectos visuales, por defecto
+       Esta propiedad permite determinar los aspectos visuales, por defecto
        mostrara Standard Material.
        */
       theme: themeData.copyWith(
@@ -69,55 +69,37 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  /**
+   * Este metodo esta ejecutandose siempre, cada vez que el setState es llamado
+   */
   @override
   Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
+
+    /**
+     * Un Scaffold proporciona una estructura de alto nivel para una ventana,
+     * dentro tendrá las propiedades de la misma que vas a usar.
+     */
     return Scaffold(
+
+      /**
+       * AppVar obtiene la propiedad del titulo usando la clase "Text" del widget
+       * El valor del titulo es pasado desde home: MyHomePage(title: 'asdad') en
+       * Recipe.build().
+       */
       appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
+        title: Text(widget.title)
       ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Invoke "debug painting" (press "p" in the console, choose the
-          // "Toggle Debug Paint" action from the Flutter Inspector in Android
-          // Studio, or the "Toggle Debug Paint" command in Visual Studio Code)
-          // to see the wireframe for each widget.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-          ],
-        ),
+
+      /**
+       * SafeArea: Evita que la aplicación se acerque demasiado a las
+       * interfaces del sistema operativo, como la muesca o áreas interactivas
+       * como el indicador de inicio en la parte inferior de algunas pantallas
+       * de iOS.
+       */
+      body: SafeArea(
+        child: Container(),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+
     );
   }
 }
