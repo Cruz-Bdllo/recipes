@@ -48,6 +48,23 @@ class RecipeApp extends StatelessWidget {
  */
 class _MyHomePageState extends State<MyHomePage> {
 
+  /**
+   * Creamos un widget que use Card Widget.
+   * Create a Card that provide a container for recipes.
+   */
+  Widget buildRecipeCard(Recipe recipe) {
+    return Card( // Card es también un widget
+      // Colum: es un widget que define un diseño vertical y este widget tiene
+      // 2 children (Image y Text)
+      child: Column(
+        children: <Widget>[
+          Image(image: AssetImage(recipe.imgUrl)),
+          Text(recipe.lable)
+        ],
+      ),
+    );
+  } // end card
+
   @override
   Widget build(BuildContext context) {
     /**
@@ -83,8 +100,8 @@ class _MyHomePageState extends State<MyHomePage> {
 
             // builds the widget tree for each row
             itemBuilder: (BuildContext context, int index) {
-              // widget displays the name of the recipe
-              return Text(Recipe.sampleRecipes[index].lable);
+              // Displays the recipe using a custom Card Widget
+              return buildRecipeCard(Recipe.sampleRecipes[index]);
             },
           ),
       ),
