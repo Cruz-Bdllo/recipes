@@ -17,7 +17,9 @@ class RecipeDetail extends StatefulWidget {
 }
 
 class _RecipeDetailState extends State<RecipeDetail> {
+  // Se actualiza de manera reactiva al usar el slider
   int _sliderValue = 1;
+
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -53,7 +55,7 @@ class _RecipeDetailState extends State<RecipeDetail> {
                 itemCount: widget.recipe.ingredients.length,
                 itemBuilder: (BuildContext context, int index) {
                   final ingredient = widget.recipe.ingredients[index];
-                  return Text('${ingredient.quantity} ${ingredient.measure} ${ingredient.name}');
+                  return Text('${_sliderValue * ingredient.quantity} ${ingredient.measure} ${ingredient.name}');
                 }
               ),
             ),
@@ -69,7 +71,7 @@ class _RecipeDetailState extends State<RecipeDetail> {
                 });
               },
               activeColor: Colors.green,
-              inactiveColor: Colors.black,
+              inactiveColor: Colors.grey,
             )
           ],
         ),
