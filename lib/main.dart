@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:recipes/model/recipe.dart';
+import 'package:recipes/recipe_detail.dart';
 
 /**
  * Punto de entrada, este método lonza la aplicación pasada en su parámetro
@@ -125,7 +126,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   Navigator.push(
                       context,
                       MaterialPageRoute(builder: (context) {
-                        return Text('Detail Page');
+                        return RecipeDetail(recipe: Recipe.sampleRecipes[index]);
                       })
                   );
                 },
