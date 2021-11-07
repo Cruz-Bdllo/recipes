@@ -126,6 +126,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   Navigator.push(
                       context,
                       MaterialPageRoute(builder: (context) {
+                        print(Recipe.sampleRecipes[index].lable);
                         return RecipeDetail(recipe: Recipe.sampleRecipes[index]);
                       })
                   );

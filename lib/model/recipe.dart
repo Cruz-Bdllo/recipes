@@ -9,6 +9,14 @@ class Recipe {
   int servings;
   List<Ingredient> ingredients;
 
+  // Constructor
+  Recipe(
+    this.lable,
+    this.imgUrl,
+    this.servings,
+    this.ingredients
+  );
+
   static List<Recipe> sampleRecipes = [
     Recipe(
       'Spaghetti and Meatballs',
@@ -70,12 +78,6 @@ class Recipe {
     ),
   ];
 
-  // Constructor
-  Recipe(
-      this.lable,
-      this.imgUrl,
-      this.servings,
-      this.ingredients
-  );
+
 
 } // end model
