@@ -34,7 +34,7 @@ class RecipeApp extends StatelessWidget {
        */
       theme: themeData.copyWith(
         colorScheme: themeData.colorScheme.copyWith(
-          primary: Colors.grey,
+          primary: Colors.blueAccent,
           secondary: Colors.black
         )
       ),
@@ -56,11 +56,28 @@ class _MyHomePageState extends State<MyHomePage> {
     return Card( // Card es también un widget
       // Colum: es un widget que define un diseño vertical y este widget tiene
       // 2 children (Image y Text)
-      child: Column(
-        children: <Widget>[
-          Image(image: AssetImage(recipe.imgUrl)),
-          Text(recipe.lable)
-        ],
+      elevation: 2.0,
+      shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10.0)
+      ),
+      child: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+            children: <Widget>[
+              Image(image: AssetImage(recipe.imgUrl)),
+              const SizedBox(
+                height: 14.0,
+              ),
+              Text(
+                recipe.lable,
+                style: const TextStyle(
+                  fontSize: 20.0,
+                  fontWeight: FontWeight.w700,
+                  fontFamily: 'Palatino'
+                ),
+              )
+            ],
+          )
       ),
     );
   } // end card
