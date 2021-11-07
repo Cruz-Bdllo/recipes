@@ -82,8 +82,10 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   } // end card
 
+
   @override
   Widget build(BuildContext context) {
+
     /**
      * Proporciona una estructura de alto nivel para una ventana, en este caso
      * usando 2 propiedades.
@@ -117,11 +119,23 @@ class _MyHomePageState extends State<MyHomePage> {
 
             // builds the widget tree for each row
             itemBuilder: (BuildContext context, int index) {
-              // Displays the recipe using a custom Card Widget
-              return buildRecipeCard(Recipe.sampleRecipes[index]);
+              // Agregar evento Tap sobre la card
+              return GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) {
+                        return Text('Detail Page');
+                      })
+                  );
+                },
+                // Displays the recipe using a custom Card Widget
+                child: buildRecipeCard(Recipe.sampleRecipes[index]),
+              );
             },
           ),
       ),
+
 
     );
   }
